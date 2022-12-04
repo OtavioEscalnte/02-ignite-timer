@@ -1,6 +1,6 @@
-# Ignite Timer ![Logo](https://user-images.githubusercontent.com/77994942/205470640-b981a0b2-99fd-4bbd-b0d5-ac4150e645f5.svg)  
+# Ignite Timer ![Logo](https://user-images.githubusercontent.com/77994942/205470640-b981a0b2-99fd-4bbd-b0d5-ac4150e645f5.svg) <br><br> 
 
-## Projeto Desenvolvido em React-Js com Typescript durante a trilha ignite da Rocketseat ![image 10 (1)](https://user-images.githubusercontent.com/77994942/205470744-bd9734ff-559c-4bb5-9bab-60d4eb5c69fd.svg)<br><br>
+## Projeto Desenvolvido em React-Js com Typescript durante a trilha ignite da Rocketseat ![image 10 (1)](https://user-images.githubusercontent.com/77994942/205470744-bd9734ff-559c-4bb5-9bab-60d4eb5c69fd.svg)
 
 
 
