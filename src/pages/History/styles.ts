@@ -41,6 +41,7 @@ export const HistoryList = styled.div`
         padding-right: 1.5rem;
       }
     }
+
     td {
       background-color: ${(props) => props.theme['gray-700']};
       border-top: 4px solid ${(props) => props.theme['gray-800']};
@@ -79,7 +80,7 @@ export const Status = styled.span<StatusProps>`
     content: '';
     width: 0.5rem;
     height: 0.5rem;
-    border-radius: 50%;
+    border-radius: 9999px;
     background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
   }
 `

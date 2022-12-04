@@ -17,7 +17,7 @@ export function History() {
             <tr>
               <th>Tarefa</th>
               <th>Duração</th>
-              <th>Início</th>
+              <th>Duração</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -41,6 +41,7 @@ export function History() {
                     {cycle.interruptedDate && (
                       <Status statusColor="red">Interrompido</Status>
                     )}
+
                     {!cycle.finishedDate && !cycle.interruptedDate && (
                       <Status statusColor="yellow">Em andamento</Status>
                     )}

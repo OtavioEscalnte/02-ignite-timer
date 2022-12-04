@@ -2,6 +2,7 @@ import { HandPalm, Play } from 'phosphor-react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as zod from 'zod'
+import { useContext } from 'react'
 
 import {
   HomeContainer,
@@ -10,21 +11,20 @@ import {
 } from './styles'
 import { NewCycleForm } from './components/NewCycleForm'
 import { Countdown } from './components/Countdown'
-import { useContext } from 'react'
 import { CyclesContext } from '../../contexts/CyclesContext'
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
   minutesAmount: zod
     .number()
-    .min(1, 'O ciclo precisa de ser no mínimo 5 minutos.')
-    .max(60, 'O ciclo precisa de ser no máximo 60 minutos.'),
+    .min(5, 'O ciclo precisa ser de no mínimo 5 minutos.')
+    .max(60, 'O ciclo precisa ser de no máximo 60 minutos.'),
 })
 
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 
 export function Home() {
-  const { activeCycle, createNewCicle, interruptCurrentCycle } =
+  const { activeCycle, createNewCycle, interruptCurrentCycle } =
     useContext(CyclesContext)
 
   const newCycleForm = useForm<NewCycleFormData>({
@@ -38,16 +38,16 @@ export function Home() {
   const { handleSubmit, watch, reset } = newCycleForm
 
   function handleCreateNewCycle(data: NewCycleFormData) {
-    createNewCicle(data)
+    createNewCycle(data)
     reset()
   }
 
   const task = watch('task')
-  const isSubmitDisabled = !task
+  const isSubmitDisable = !task
 
   return (
     <HomeContainer>
-      <form action="" onSubmit={handleSubmit(handleCreateNewCycle)}>
+      <form onSubmit={handleSubmit(handleCreateNewCycle)}>
         <FormProvider {...newCycleForm}>
           <NewCycleForm />
         </FormProvider>
@@ -56,12 +56,12 @@ export function Home() {
         {activeCycle ? (
           <StopCountDownButton onClick={interruptCurrentCycle} type="button">
             <HandPalm size={24} />
-            interromper
+            Interromper
           </StopCountDownButton>
         ) : (
-          <StartCountDownButton disabled={isSubmitDisabled} type="submit">
+          <StartCountDownButton disabled={isSubmitDisable} type="submit">
             <Play size={24} />
-            começar
+            Começar
           </StartCountDownButton>
         )}
       </form>
